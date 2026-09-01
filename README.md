@@ -11,7 +11,7 @@ An end-to-end data analytics project exploring driver lifecycle, dispatch accept
 
 ## 📌 Project Overview
 
-This project analyzes driver engagement and operational efficiency across licensed TAXI and Private Hire Vehicle (PHV) fleets. Using a full analytics pipeline (**Excel ➔ Python ➔ SQL ➔ Power BI ➔ PowerPoint**), we modeled driver performance, formulated a multi-factor composite engagement score, and diagnosed key operational bottlenecks.
+This project analyzes driver engagement and operational efficiency across licensed TAXI and Private Hire Vehicle (PHV) fleets. Using a comprehensive analytics pipeline (**Python ➔ SQL ➔ Power BI**), we modeled driver performance, formulated a multi-factor composite engagement score, and diagnosed key operational bottlenecks.
 
 ### 🎯 Key Business Highlights
 - **1.82M+ Activity Records & 36,972 Registered Drivers** analyzed across 2020.
@@ -28,9 +28,6 @@ This project analyzes driver engagement and operational efficiency across licens
 CSV Source Data (36.9K Drivers | 1.82M Daily Activity Logs)
                       │
                       ▼
-Excel (Schema Discovery & Data Profiling)
-                      │
-                      ▼
 Python / Pandas / NumPy (Data Cleaning, Funnel Alignment & Feature Engineering)
                       │
                       ▼
@@ -38,9 +35,6 @@ MySQL Database (Schema DDL & 8 Business Analytics Queries)
                       │
                       ▼
 Power BI (Star Schema Model, DAX Measures & 3-Page Interactive Dashboard)
-                      │
-                      ▼
-Executive PowerPoint Deck (10-Slide Stakeholder Presentation)
 ```
 
 ---
@@ -84,9 +78,6 @@ $$\text{Score} = (0.35 \times \text{Completion Rate}) + (0.25 \times \text{Accep
 │   ├── RIDE_IT_Interactive_Dashboard.html    # Standalone interactive 3-page web dashboard
 │   ├── powerbi_dax_measures.dax              # Complete DAX measures library
 │   └── powerbi_data_model_guide.md           # Star schema blueprint & layout specs
-├── presentation/
-│   ├── RIDE_IT_Driver_Engagement_Deck.pptx   # 10-slide executive presentation
-│   └── slide_deck_notes_and_script.md        # Complete speaker script & notes
 ├── python/
 │   ├── RIDE_IT_Drivers_Engagement_Analysis.ipynb # Jupyter notebook with end-to-end analysis
 │   ├── run_data_pipeline.py                 # Automated data ETL & metric generation
@@ -104,7 +95,7 @@ $$\text{Score} = (0.35 \times \text{Completion Rate}) + (0.25 \times \text{Accep
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/<your-username>/RIDE_IT_Drivers_Engagement_Analysis.git
+git clone https://github.com/jasvibusimi5-lgtm/RIDE_IT_Drivers_Engagement_Analysis.git
 cd RIDE_IT_Drivers_Engagement_Analysis
 ```
 
@@ -112,13 +103,13 @@ cd RIDE_IT_Drivers_Engagement_Analysis
 ```bash
 python -m venv venv
 venv\Scripts\activate      # On Windows
-pip install pandas numpy matplotlib seaborn python-pptx
+pip install pandas numpy matplotlib seaborn
 python python/run_data_pipeline.py
 python python/generate_charts.py
 ```
 
 ### 3. Open Interactive Dashboard
-Simply double-click `powerbi/RIDE_IT_Interactive_Dashboard.html` or open it with any web browser (Chrome, Edge, Firefox).
+Simply open `powerbi/RIDE_IT_Interactive_Dashboard.html` in any web browser (Chrome, Edge, Firefox).
 
 ---
 
