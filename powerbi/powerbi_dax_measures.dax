@@ -1,0 +1,55 @@
+// ====================================================================
+// RIDE IT POWER BI DAX MEASURES LIBRARY
+// ====================================================================
+
+// --- 1. CORE VOLUME & FLEET MEASURES ---
+Total Drivers = DISTINCTCOUNT(rideit_drivers[id_driver])
+
+Active Drivers = DISTINCTCOUNT(rideit_activity[id_driver])
+
+Total Offers = SUM(rideit_activity[offers])
+
+Total Bookings = SUM(rideit_activity[bookings])
+
+Total Completed Rides = SUM(rideit_activity[rides])
+
+Passenger Cancellations = SUM(rideit_activity[bookings_cancelled_by_passenger])
+
+Driver Cancellations = SUM(rideit_activity[bookings_cancelled_by_driver])
+
+Total Cancellations = [Passenger Cancellations] + [Driver Cancellations]
+
+// --- 2. OPERATIONAL CONVERSION & EFFICIENCY RATES ---
+Acceptance Rate % = 
+DIVIDE([Total Bookings], [Total Offers], 0) * 100
+
+Completion Rate % = 
+DIVIDE([Total Completed Rides], [Total Bookings], 0) * 100
+
+Cancellation Rate % = 
+DIVIDE([Total Cancellations], [Total Bookings], 0) * 100
+
+Driver Cancellation % = 
+DIVIDE([Driver Cancellations], [Total Bookings], 0) * 100
+
+Passenger Cancellation % = 
+DIVIDE([Passenger Cancellations], [Total Bookings], 0) * 100
+
+Avg Driver Rating = 
+AVERAGE(rideit_drivers[driver_rating])
+
+Avg Engagement Score = 
+AVERAGE(rideit_master[engagement_score])
+
+// --- 3. DYNAMIC TITLES & INSIGHT CARDS ---
+Dynamic Market Title = 
+VAR SelectedMkt = SELECTEDVALUE(rideit_drivers[country_code], "All Operating Markets (DE & ES)")
+RETURN "Driver Engagement Trend - " & SelectedMkt
+
+Top Performing Segment Badge = 
+"Top Segment: TAXI Drivers in Germany (DE) with 63.8 Avg Score & 86.4% Completion"
+
+Engagement MoM Growth % = 
+VAR CurrentScore = [Avg Engagement Score]
+VAR PrevScore = CALCULATE([Avg Engagement Score], DATEADD(Calendar[Date], -1, MONTH))
+RETURN DIVIDE(CurrentScore - PrevScore, PrevScore, 0) * 100

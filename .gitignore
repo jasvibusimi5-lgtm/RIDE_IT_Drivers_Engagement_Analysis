@@ -1,0 +1,17 @@
+# Large Raw Data & Activity Logs (> 50MB - exceeds GitHub recommended limits)
+data/Rideit_drivers_activity.csv
+output/activity_cleaned.csv
+output/rideit_merged_cleaned.csv
+
+# Python cache & Jupyter checkpoints
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
